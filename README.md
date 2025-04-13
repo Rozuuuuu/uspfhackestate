@@ -72,12 +72,41 @@ git init
 git remote add origin https://github.com/Rozuuuuu/uspfhackestate.git
 ```
 
-3. If you encounter push rejection errors:
+3. If you encounter push rejection errors, try these safer steps:
 ```bash
-git pull origin master --allow-unrelated-histories
+# First, create a backup of your work (just in case)
+git branch backup-main
+
+# Get the remote changes without merging
+git fetch origin
+
+# Merge the remote changes with yours
+git merge origin/main --allow-unrelated-histories
+
+# If there are conflicts, resolve them in your editor
+# Then commit your changes
 git add .
 git commit -m "Merge remote changes"
-git push origin master
+
+# Push your changes
+git push origin main
+```
+
+4. If you still have issues, try this alternative:
+```bash
+# Stash your changes temporarily
+git stash
+
+# Pull the remote changes
+git pull origin main
+
+# Reapply your changes
+git stash pop
+
+# Resolve any conflicts, then commit and push
+git add .
+git commit -m "Merge changes"
+git push origin main
 ```
 
 ## About Laravel
