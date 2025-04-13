@@ -9,19 +9,28 @@
 
 # USPF Hackestate
 
-A Laravel-based project for USPF hackestate.
+A Laravel-based real estate management system for USPF. This project aims to provide a comprehensive solution for managing real estate listings, property details, and user interactions.
+
+## Features
+
+- Property listing management
+- User authentication and authorization
+- Property search and filtering
+- Real estate agent profiles
+- Contact management
 
 ## Installation
 
 1. Clone the repository
 ```bash
 git clone https://github.com/Rozuuuuu/uspfhackestate.git
+cd uspfhackestate
 ```
 
 2. Install dependencies
 ```bash
 composer install
-npm install
+npm install && npm run dev
 ```
 
 3. Configure environment
@@ -30,14 +39,45 @@ cp .env.example .env
 php artisan key:generate
 ```
 
-4. Run migrations
+4. Configure your database in .env file
 ```bash
-php artisan migrate
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_database_name
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
 ```
 
-5. Start the development server
+5. Run migrations
+```bash
+php artisan migrate --seed
+```
+
+6. Start the development server
 ```bash
 php artisan serve
+```
+
+## Development Setup
+
+### Git Configuration
+1. Initialize the repository
+```bash
+git init
+```
+
+2. Add the remote repository
+```bash
+git remote add origin https://github.com/Rozuuuuu/uspfhackestate.git
+```
+
+3. If you encounter push rejection errors:
+```bash
+git pull origin master --allow-unrelated-histories
+git add .
+git commit -m "Merge remote changes"
+git push origin master
 ```
 
 ## About Laravel
@@ -84,7 +124,7 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Please read our [Contributing Guidelines](CONTRIBUTING.md) before submitting a Pull Request.
 
 ## Code of Conduct
 
